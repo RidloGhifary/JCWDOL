@@ -15,3 +15,7 @@ console.log(typeof bilangan);
 const txt = "hallo";
 console.log(txt.slice(0,3));
 console.log(txt.substring(1,0));
+const word = "ridlo achmad"
+const arr = ["r","i"];
+console.log(word.split(""))
+console.log(arr.splice(""))
