@@ -31,3 +31,5 @@ for (let i = 6; i >= 1; i--) {
   factorialNumber *= i;
 }
 console.log("factorialNumber:", factorialNumber);
+
+// TODO - PRINT FIRST N FIBONACCI NUMBER
