@@ -17,19 +17,38 @@ console.log("sum:", sum);
 
 // TODO - CHECK WHETHER THE NUMBER IS PRIME NUMBER OT NOT
 function isPrime(num) {
-  if (num / 1 === num || num / num === 1) {
-    console.log(`${num} is prime number`);
-  } else {
-    console.log(`${num} is not prime number`);
+  for (let i = 2, s = Math.sqrt(num); i <= s; i++) {
+    if (num % i === 0) return false;
   }
+  return num > 1;
 }
-isPrime(10);
+const primeNumber = 3;
+if (isPrime(primeNumber)) console.log(`${primeNumber} is a prime number`);
+else console.log(`${primeNumber} is not a prime number`);
 
 // TODO - FIND FACTORIAL NUMBER
 let factorialNumber = 1;
-for (let i = 6; i >= 1; i--) {
+for (let i = 4; i >= 1; i--) {
   factorialNumber *= i;
 }
 console.log("factorialNumber:", factorialNumber);
 
 // TODO - PRINT FIRST N FIBONACCI NUMBER
+function printFibonacci(N) {
+  let fibonacci = [];
+  fibonacci[0] = 0;
+  fibonacci[1] = 1;
+  console.log("First " + N + " Fibonacci numbers:");
+  if (N >= 1) {
+    console.log(fibonacci[0]);
+  }
+  if (N >= 2) {
+    console.log(fibonacci[1]);
+  }
+  for (let i = 2; i < N; i++) {
+    fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+  }
+  console.log(fibonacci);
+}
+
+printFibonacci(15);
