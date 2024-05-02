@@ -34,21 +34,10 @@ for (let i = 4; i >= 1; i--) {
 console.log("factorialNumber:", factorialNumber);
 
 // TODO - PRINT FIRST N FIBONACCI NUMBER
-function printFibonacci(N) {
-  let fibonacci = [];
-  fibonacci[0] = 0;
-  fibonacci[1] = 1;
-  console.log("First " + N + " Fibonacci numbers:");
-  if (N >= 1) {
-    console.log(fibonacci[0]);
-  }
-  if (N >= 2) {
-    console.log(fibonacci[1]);
-  }
-  for (let i = 2; i < N; i++) {
-    fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
-  }
-  console.log(fibonacci);
-}
+var i;
+var fib = [0, 1];
 
-printFibonacci(15);
+for (i = 2; i <= 15; i++) {
+  fib[i] = fib[i - 2] + fib[i - 1];
+  console.log(fib[i]);
+}
