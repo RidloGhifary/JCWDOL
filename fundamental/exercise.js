@@ -137,24 +137,9 @@ CombineGivenArray([1, 2, 3], [4, 5, 6]);
 
 // TODO - 4. Write a function to find duplicate values in an array
 const FindDuplicateNumber = (arr) => {
-  const duplicates = [];
-  const counts = {};
+  const duplicates = arr.filter((item, index) => arr.indexOf(item) !== index);
 
-  for (let num of arr) {
-    if (counts[num] === undefined) {
-      counts[num] = 1;
-    } else {
-      counts[num]++;
-    }
-  }
-
-  for (let key in counts) {
-    if (counts[key] > 1) {
-      duplicates.push(parseInt(key));
-    }
-  }
-
-  console.log(duplicates);
+  console.log(Array.from(new Set(duplicates)));
 };
 
 FindDuplicateNumber([1, 2, 2, 2, 3, 3, 4, 5, 5]);
@@ -218,9 +203,16 @@ SumAllTheNumber(["3", 1, "string", null, false, undefined, 2]);
 
 // TODO - 4. Write a function from the below array of number that will return sum of duplicate values.
 const SumDuplicateValue = (arr) => {
-  const duplicates = arr.filter((value, index) => arr.indexOf(value) !== index);
-  const sum = duplicates.reduce((acc, curr) => acc + curr, 0);
+  let newArray = [arr[0]];
 
+  for (let i = 0; i < arr.length; i++) {
+    if (newArray.includes(arr[i])) {
+      newArray.push(arr[i]);
+    }
+  }
+
+  newArray.shift();
+  const sum = newArray.reduce((a, b) => a + b, 0);
   console.log(sum);
 };
 
