@@ -102,3 +102,16 @@ const SplitString = (str) => {
 };
 
 SplitString("Hello World");
+
+function Box(n, m) {
+  let box = "";
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= m; j++) {
+      box += "*" + " ";
+    }
+    box += "\n";
+  }
+  console.log(box);
+}
+
+Box(4, 5);
