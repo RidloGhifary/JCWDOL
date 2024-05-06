@@ -42,6 +42,10 @@ CreateTriangleHeight(4);
 
 // TODO - 2. Create a function that can loop the number of times according to the input we provide, and will replace multiples of 3 with "Fizz", multiples of 5 with "Buzz", multiples of 3 and 5 with "FizzBuzz".
 const FizzBuzz = (num) => {
+  if (!num || typeof num !== "number") {
+    console.log("Input valid number");
+  }
+
   for (let i = 1; i <= num; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
       console.log(`fizz buzz`);
