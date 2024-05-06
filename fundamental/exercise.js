@@ -1,4 +1,5 @@
 // TODO - 1. Write a function to get the lowest, highest and average value in the array (with and without sort function).
+
 const GetStatsWithoutSort = (arr) => {
   if (arr.length === 0) return "Array is empty";
 
@@ -52,6 +53,9 @@ GetStatsWithSort([12, 5, 23, 18, 4, 45, 32]);
 const CombineArray = (arr) => {
   let str = "";
   for (const newArr of arr) {
+    if (arr.indexOf(newArr) === arr.length - 1) {
+      str += newArr + ", and ";
+    }
     str += newArr + ", ";
   }
 
@@ -163,7 +167,7 @@ const FindDifferenceInArray = (arr1, arr2) => {
   console.log(different);
 };
 
-FindDifferenceInArray([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
+FindDifferenceInArray([1, 2, 3, 4, 10], [3, 4, 5, 6, 7]);
 
 // TODO - 1. Based on the array below write a function that will return primitive data types only.
 const FindPrimitiveData = (arr) => {
