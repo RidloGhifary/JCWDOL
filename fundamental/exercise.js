@@ -135,7 +135,7 @@ const CombineGivenArray = (arr1, arr2) => {
 
 CombineGivenArray([1, 2, 3], [4, 5, 6]);
 
-// TODO - Write a function to find duplicate values in an array
+// TODO - 4. Write a function to find duplicate values in an array
 const FindDuplicateNumber = (arr) => {
   const duplicates = [];
   const counts = {};
@@ -159,4 +159,116 @@ const FindDuplicateNumber = (arr) => {
 
 FindDuplicateNumber([1, 2, 2, 2, 3, 3, 4, 5, 5]);
 
-// TODO - Write a function to find the difference in 2 given array
+// TODO - 5. Write a function to find the difference in 2 given array
+const FindDifferenceInArray = (arr1, arr2) => {
+  let different = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (!arr2.includes(arr1[i])) {
+      different.push(arr1[i]);
+    }
+  }
+
+  for (let i = 0; i < arr2.length; i++) {
+    if (!arr1.includes(arr2[i])) {
+      different.push(arr2[i]);
+    }
+  }
+
+  console.log(different);
+};
+
+FindDifferenceInArray([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
+
+// TODO - 1. Based on the array below write a function that will return primitive data types only.
+const FindPrimitiveData = (arr) => {
+  console.log(
+    arr.filter(
+      (item) =>
+        typeof item === "number" ||
+        typeof item === "string" ||
+        typeof item === "boolean" ||
+        item === undefined ||
+        item === null
+    )
+  );
+};
+
+FindPrimitiveData([1, [], undefined, {}, "string", {}, []]);
+
+// TODO - 2.Write a function from a given array of numbers and return the second smallest number
+const FindSmallestNumber = (arr) => {
+  console.log(arr.sort((x, y) => x - y)[1]);
+};
+
+FindSmallestNumber([5, 3, 1, 7, 2, 6]);
+
+// TODO - 3. Write a function from a given array of mixed data types and return the sum of all the number
+const SumAllTheNumber = (arr) => {
+  let sum = 0;
+  for (const item of arr) {
+    if (typeof item === "number") {
+      sum += item;
+    }
+  }
+  console.log(sum);
+};
+
+SumAllTheNumber(["3", 1, "string", null, false, undefined, 2]);
+
+// TODO - 4. Write a function from the below array of number that will return sum of duplicate values.
+const SumDuplicateValue = (arr) => {
+  const duplicates = arr.filter((value, index) => arr.indexOf(value) !== index);
+  const sum = duplicates.reduce((acc, curr) => acc + curr, 0);
+
+  console.log(sum);
+};
+
+SumDuplicateValue([10, 20, 40, 10, 50, 30, 10, 60, 10]);
+
+// TODO - 5. Write a game of rock, paper, scissor function that will return 'Win' or 'Lose'. The function will randomly pick between rock, paper, or scissor.
+const RockPaperScissor = (character) => {
+  let computer = Math.random();
+  const player = character.toLowerCase();
+
+  if (player !== "rock" && player !== "paper" && player !== "scissor") {
+    console.log("Please type proper character");
+  }
+
+  switch (true) {
+    case computer < 0.35:
+      computer = "rock";
+      break;
+    case computer >= 0.35 && computer <= 0.75:
+      computer = "paper";
+      break;
+    case computer > 0.75:
+      computer = "scissor";
+      break;
+
+    default:
+      computer = "rock";
+      break;
+  }
+
+  if (player === computer) console.log(`Computer : ${computer} -> Draw`);
+
+  if (player === "rock") {
+    if (computer === "paper") console.log(`Computer : ${computer} -> You Lose`);
+    if (computer === "scissor")
+      console.log(`Computer : ${computer} -> You Won`);
+  }
+
+  if (player === "paper") {
+    if (computer === "rock") console.log(`Computer : ${computer} -> You Won`);
+    if (computer === "scissor")
+      console.log(`Computer : ${computer} -> You Lose`);
+  }
+
+  if (player === "scissor") {
+    if (computer === "rock") console.log(`Computer : ${computer} -> You Lose`);
+    if (computer === "paper") console.log(`Computer : ${computer} -> You Won`);
+  }
+};
+
+RockPaperScissor("rock");
