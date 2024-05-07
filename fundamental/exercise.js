@@ -51,7 +51,6 @@ class Transaction {
   AddToCart(product, qty) {
     this.products = { product, qty };
     this.total += product.price * qty;
-    console.log(this.products);
   }
 
   ShowTotal() {
@@ -59,7 +58,8 @@ class Transaction {
   }
 
   Checkout() {
-    console.log(`Transaction data: {total: ${this.total}, products: }`);
+    return { total: this.total, products: this.products };
+    // const checkout = `Transaction data: {total: ${this.total}, products: ${this.products}}`;
   }
 }
 
@@ -72,7 +72,10 @@ const allProducts = {
 const transaction = new Transaction();
 
 transaction.AddToCart(allProducts.Apple, 3);
-transaction.AddToCart(allProducts.Banana, 3);
-transaction.AddToCart(allProducts.Orange, 3);
+transaction.AddToCart(allProducts.Banana, 1);
+transaction.AddToCart(allProducts.Orange, 2);
+
 transaction.ShowTotal();
-transaction.Checkout();
+
+const transactionData = transaction.Checkout();
+console.log(transactionData);
