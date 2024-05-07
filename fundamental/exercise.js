@@ -45,11 +45,11 @@ class Product {
 class Transaction {
   constructor() {
     this.total = 0;
-    this.products = {};
+    this.products = [];
   }
 
   AddToCart(product, qty) {
-    this.products = { product, qty };
+    this.products.push({ name: product.name, price: product.price, qty });
     this.total += product.price * qty;
   }
 
@@ -58,7 +58,10 @@ class Transaction {
   }
 
   Checkout() {
-    return { total: this.total, products: this.products };
+    return {
+      products: this.products,
+      total: `Rp. ${this.total.toLocaleString("id-ID")}`,
+    };
   }
 }
 
@@ -77,4 +80,4 @@ transaction.AddToCart(allProducts.Orange, 2);
 transaction.ShowTotal();
 
 const transactionData = transaction.Checkout();
-console.log(transactionData);
+console.log("Transaction Data => ", transactionData);
