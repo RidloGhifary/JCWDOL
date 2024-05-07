@@ -59,7 +59,6 @@ class Transaction {
 
   Checkout() {
     return { total: this.total, products: this.products };
-    // const checkout = `Transaction data: {total: ${this.total}, products: ${this.products}}`;
   }
 }
 
