@@ -94,3 +94,27 @@ function FactorialNumber(num) {
 }
 
 console.log(FactorialNumber(5));
+
+// TODO - Shooting Game
+class Player {
+  constructor(name, health = 100, power = 10) {
+    this.name = name;
+    this.health = health;
+    this.power = power;
+  }
+
+  hit(power) {
+    this.health -= power;
+  }
+
+  useItem(item) {
+    this.power += item.power;
+    this.health += item.health;
+  }
+
+  showStatus() {
+    console.log(
+      `Player ${this.name} has ${this.power} power and ${this.health} health`
+    );
+  }
+}
