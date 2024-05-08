@@ -87,11 +87,11 @@
 
 // Case. Sebuah Class untuk Data Student yang ada di Pwd
 class Student {
-  constructor(fullName, program, batch, gender) {
+  constructor(fullName, email, program, batch) {
     this.fullName = fullName;
+    this.email = email;
     this.program = program;
     this.batch = batch;
-    this.gender = gender;
   }
 
   sayHello() {
@@ -99,6 +99,10 @@ class Student {
   }
 }
 
-const ridlo = new Student("ridlo achmad ghifary", "JWDOL", "14", "male");
-console.log(ridlo);
-console.log(ridlo.sayHello());
+const studentArray = [
+  new Student("ridlo achmad ghifary", "ridlo@gmail.com", "JWDOL", "14"),
+  new Student("ucok baba", "ucok@gmail.com", "JWDOL", "15"),
+];
+
+console.log(studentArray);
+console.log(studentArray.forEach((item) => console.log(item.sayHello())));
