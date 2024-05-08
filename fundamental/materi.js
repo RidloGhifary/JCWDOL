@@ -105,4 +105,4 @@ const studentArray = [
 ];
 
 console.log(studentArray);
-console.log(studentArray.forEach((item) => console.log(item.sayHello())));
+studentArray.forEach((item) => console.log(item.sayHello()));
