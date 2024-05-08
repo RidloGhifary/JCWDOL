@@ -68,3 +68,29 @@ const array2 = [
 ];
 
 console.log(MergeAndRemoveDuplicates(array1, array2));
+
+// TODO - Create a function that can accept input as an array of objects and switch all values into property and property into value
+function SwitchKeysAndValues(arr) {
+  return arr.map((obj) => {
+    const switchKey = {};
+
+    for (const key in obj) {
+      const value = obj[key];
+      switchKey[value] = key;
+    }
+
+    return switchKey;
+  });
+}
+
+const inputArray = [{ name: "David", age: 20 }];
+console.log(SwitchKeysAndValues(inputArray));
+
+// TODO - Create a function to find a factorial number using recursion
+function FactorialNumber(num) {
+  if (num === 0 || num === 1) return num;
+
+  return num * FactorialNumber(num - 1);
+}
+
+console.log(FactorialNumber(5));
