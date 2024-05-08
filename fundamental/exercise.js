@@ -113,8 +113,75 @@ class Player {
   }
 
   showStatus() {
-    console.log(
-      `Player ${this.name} has ${this.power} power and ${this.health} health`
-    );
+    return `${this.name} has ${this.power} power and ${this.health} health`;
   }
 }
+
+class ShootingGame {
+  constructor(player1, player2) {
+    this.player1 = player1;
+    this.player2 = player2;
+  }
+
+  getRandomItem() {
+    const health = Math.random() < 0.5 ? 0 : 10;
+    const power = Math.random() < 0.5 ? 0 : 10;
+    return { health, power };
+  }
+
+  start() {
+    while (this.player1.health > 0 && this.player2.health > 0) {
+      console.log(this.player1.showStatus());
+      console.log(this.player2.showStatus());
+
+      this.player1.hit(this.player2.power);
+      console.log(
+        `${player1.name} hit ${player2.name} with ${this.player1.power} power`
+      );
+
+      this.player2.hit(this.player1.power);
+      console.log(
+        `${player2.name} hit ${player1.name} with ${this.player2.power} power`
+      );
+
+      console.log(this.player1.showStatus());
+      console.log(this.player2.showStatus());
+
+      const itemPlayer1 = this.getRandomItem();
+      const itemPlayer2 = this.getRandomItem();
+      console.log(
+        `${this.player1.name} just got ${itemPlayer1.health} health and ${itemPlayer1.power} power`
+      );
+      this.player1.useItem(itemPlayer1);
+
+      console.log(
+        `${this.player2.name} just got ${itemPlayer2.health} health and ${itemPlayer2.power} power`
+      );
+      this.player2.useItem(itemPlayer2);
+
+      this.player1.hit(this.player2.power);
+      console.log(
+        `${player1.name} hit ${player2.name} with ${this.player1.power} power`
+      );
+      this.player2.hit(this.player1.power);
+      console.log(
+        `${player2.name} hit ${player1.name} with ${this.player2.power} power`
+      );
+
+      console.log(this.player1.showStatus());
+      console.log(this.player2.showStatus());
+    }
+
+    if (this.player1.health <= 0) {
+      console.log(`${this.player2.name} Won the game`);
+    } else {
+      console.log(`${this.player1.name} Won the game`);
+    }
+  }
+}
+
+const player1 = new Player("Ridlo");
+const player2 = new Player("Ucok");
+
+const playGame = new ShootingGame(player1, player2);
+playGame.start();
