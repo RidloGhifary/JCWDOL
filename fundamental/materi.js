@@ -86,23 +86,88 @@
 // console.log(arrProducts)
 
 // Case. Sebuah Class untuk Data Student yang ada di Pwd
-class Student {
-  constructor(fullName, email, program, batch) {
-    this.fullName = fullName;
-    this.email = email;
-    this.program = program;
-    this.batch = batch;
+// class Student {
+//   constructor(fullName, email, program, batch) {
+//     this.fullName = fullName;
+//     this.email = email;
+//     this.program = program;
+//     this.batch = batch;
+//   }
+
+//   sayHello() {
+//     return `Hallo saya ${this.fullName} dari ${this.program}-${this.batch}`;
+//   }
+// }
+
+// const studentArray = [
+//   new Student("ridlo achmad ghifary", "ridlo@gmail.com", "JWDOL", "14"),
+//   new Student("ucok baba", "ucok@gmail.com", "JWDOL", "15"),
+// ];
+
+// console.log(studentArray);
+// studentArray.forEach((item) => console.log(item.sayHello()));
+
+class Product {
+  constructor(name, stock, price) {
+    this.name = name;
+    this.stock = stock;
+    this.price = price;
   }
 
-  sayHello() {
-    return `Hallo saya ${this.fullName} dari ${this.program}-${this.batch}`;
+  getInfo() {
+    return `Product: ${this.name}, Stock: ${
+      this.stock
+    }, Price Rp. ${this.price.toLocaleString("id-ID")}`;
   }
 }
 
-const studentArray = [
-  new Student("ridlo achmad ghifary", "ridlo@gmail.com", "JWDOL", "14"),
-  new Student("ucok baba", "ucok@gmail.com", "JWDOL", "15"),
-];
+class ElectronicProduct extends Product {
+  constructor(name, stock, brand, price) {
+    super(name, stock, price);
+    this.brand = brand;
+  }
 
-console.log(studentArray);
-studentArray.forEach((item) => console.log(item.sayHello()));
+  getInfo() {
+    return `${super.getInfo()}, Brand: ${this.brand}`;
+  }
+}
+
+class FashionProduct extends Product {
+  constructor(name, stock, size, color, price) {
+    super(name, stock, price);
+    this.size = size;
+    this.color = color;
+  }
+
+  getInfo() {
+    return `${super.getInfo()}, Size: ${this.size}, Color: ${this.color}`;
+  }
+}
+
+class SnackProduct extends Product {
+  constructor(name, stock, flavor, expirationDate, price) {
+    super(name, stock, price);
+    this.flavor = flavor;
+    this.expirationDate = expirationDate;
+  }
+
+  getInfo() {
+    return `${super.getInfo()}, Flavor: ${this.flavor}, Expiration Date: ${
+      this.expirationDate
+    }`;
+  }
+}
+
+const electronicProduct = new ElectronicProduct("Laptop", 10, "Apple", 200000);
+const fashionProduct = new FashionProduct("T-Shirt", 20, "M", "Blue", 30000);
+const snackProduct = new SnackProduct(
+  "Chips",
+  50,
+  "Barbecue",
+  "2024-06-30",
+  5000
+);
+
+console.log(electronicProduct.getInfo());
+console.log(fashionProduct.getInfo());
+console.log(snackProduct.getInfo());
