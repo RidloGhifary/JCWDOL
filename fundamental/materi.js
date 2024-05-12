@@ -107,67 +107,136 @@
 // console.log(studentArray);
 // studentArray.forEach((item) => console.log(item.sayHello()));
 
-class Product {
-  constructor(name, stock, price) {
-    this.name = name;
-    this.stock = stock;
-    this.price = price;
+// class Product {
+//   constructor(name, stock, price) {
+//     this.name = name;
+//     this.stock = stock;
+//     this.price = price;
+//   }
+
+//   getInfo() {
+//     return `Product: ${this.name}, Stock: ${
+//       this.stock
+//     }, Price Rp. ${this.price.toLocaleString("id-ID")}`;
+//   }
+// }
+
+// class ElectronicProduct extends Product {
+//   constructor(name, stock, brand, price) {
+//     super(name, stock, price);
+//     this.brand = brand;
+//   }
+
+//   getInfo() {
+//     return `${super.getInfo()}, Brand: ${this.brand}`;
+//   }
+// }
+
+// class FashionProduct extends Product {
+//   constructor(name, stock, size, color, price) {
+//     super(name, stock, price);
+//     this.size = size;
+//     this.color = color;
+//   }
+
+//   getInfo() {
+//     return `${super.getInfo()}, Size: ${this.size}, Color: ${this.color}`;
+//   }
+// }
+
+// class SnackProduct extends Product {
+//   constructor(name, stock, flavor, expirationDate, price) {
+//     super(name, stock, price);
+//     this.flavor = flavor;
+//     this.expirationDate = expirationDate;
+//   }
+
+//   getInfo() {
+//     return `${super.getInfo()}, Flavor: ${this.flavor}, Expiration Date: ${
+//       this.expirationDate
+//     }`;
+//   }
+// }
+
+// const electronicProduct = new ElectronicProduct("Laptop", 10, "Apple", 200000);
+// const fashionProduct = new FashionProduct("T-Shirt", 20, "M", "Blue", 30000);
+// const snackProduct = new SnackProduct(
+//   "Chips",
+//   50,
+//   "Barbecue",
+//   "2024-06-30",
+//   5000
+// );
+
+// console.log(electronicProduct.getInfo());
+// console.log(fashionProduct.getInfo());
+// console.log(snackProduct.getInfo());
+
+class Student {
+  username;
+  email;
+  #password;
+  phoneNumber;
+  programSelected;
+
+  constructor(address) {
+    this.address = address;
   }
 
-  getInfo() {
-    return `Product: ${this.name}, Stock: ${
-      this.stock
-    }, Price Rp. ${this.price.toLocaleString("id-ID")}`;
+  set validateUsername(username) {
+    if (username.length > 3) {
+      this.username = username;
+    } else {
+      throw new Error("Username is not valid");
+    }
+  }
+
+  set maskPhoneNumber(phoneNumber) {
+    this.phoneNumber = phoneNumber.slice(0, -5) + "*****";
+  }
+
+  set validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailRegex.test(email)) {
+      this.email = email;
+    } else {
+      throw new Error("Email is not valid");
+    }
+  }
+
+  set validatePassword(password) {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    if (passwordRegex.test(password)) {
+      this.#password = password;
+    } else {
+      throw new Error("Password is not valid");
+    }
+  }
+
+  set validateSelectedProgram(program) {
+    const validPrograms = ["JCWD", "JCDM", "JCDS", "JCUI/UX", "JCVD"];
+    if (validPrograms.includes(program.toUpperCase())) {
+      this.programSelected = program.toUpperCase();
+    } else {
+      throw new Error("Program selected is not valid");
+    }
+  }
+
+  get getInfo() {
+    return `Username: ${this.username}\nEmail: ${this.email}\nPassword: ${
+      this.#password
+    }\nAddress: ${this.address}\nPhone Number: ${
+      this.phoneNumber
+    }\nProgram Selected: ${this.programSelected}`;
   }
 }
 
-class ElectronicProduct extends Product {
-  constructor(name, stock, brand, price) {
-    super(name, stock, price);
-    this.brand = brand;
-  }
+const student1 = new Student("Indonesia");
 
-  getInfo() {
-    return `${super.getInfo()}, Brand: ${this.brand}`;
-  }
-}
+student1.validateUsername = "ridlo achmad ghifary";
+student1.maskPhoneNumber = "08583022564";
+student1.validateEmail = "ridlo@gmail.com";
+student1.validatePassword = "Pass1234";
+student1.validateSelectedProgram = "jcwd";
 
-class FashionProduct extends Product {
-  constructor(name, stock, size, color, price) {
-    super(name, stock, price);
-    this.size = size;
-    this.color = color;
-  }
-
-  getInfo() {
-    return `${super.getInfo()}, Size: ${this.size}, Color: ${this.color}`;
-  }
-}
-
-class SnackProduct extends Product {
-  constructor(name, stock, flavor, expirationDate, price) {
-    super(name, stock, price);
-    this.flavor = flavor;
-    this.expirationDate = expirationDate;
-  }
-
-  getInfo() {
-    return `${super.getInfo()}, Flavor: ${this.flavor}, Expiration Date: ${
-      this.expirationDate
-    }`;
-  }
-}
-
-const electronicProduct = new ElectronicProduct("Laptop", 10, "Apple", 200000);
-const fashionProduct = new FashionProduct("T-Shirt", 20, "M", "Blue", 30000);
-const snackProduct = new SnackProduct(
-  "Chips",
-  50,
-  "Barbecue",
-  "2024-06-30",
-  5000
-);
-
-console.log(electronicProduct.getInfo());
-console.log(fashionProduct.getInfo());
-console.log(snackProduct.getInfo());
+console.log(student1.getInfo);
