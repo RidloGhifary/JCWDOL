@@ -178,10 +178,7 @@ class Student {
   #password;
   #phoneNumber;
   programSelected;
-
-  constructor(address) {
-    this.address = address;
-  }
+  address;
 
   static validateDataStudents() {
     let username = prompt("Input username");
