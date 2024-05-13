@@ -183,164 +183,133 @@ class Student {
     this.address = address;
   }
 
-  set validateUsername(username) {
-    if (username.length > 3) {
-      this.username = username;
-    } else {
-      this.username = null;
+  static validateDataStudents() {
+    let username = prompt("Input username");
+    let usernameIsValid = false;
+    while (!usernameIsValid) {
+      if (username.length < 3) {
+        alert("Username is not valid");
+        username = prompt("Input username");
+      } else {
+        usernameIsValid = true;
+      }
     }
-  }
 
-  set maskPhoneNumber(phoneNumber) {
-    this.#phoneNumber = phoneNumber.slice(0, -5) + "*****";
-  }
-
-  set validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailRegex.test(email)) {
-      this.email = email;
-    } else {
-      this.email = null;
+    let email = prompt("Input email");
+    let emailIsValid = false;
+    while (!emailIsValid) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Email is not valid");
+        email = prompt("Input email");
+      } else {
+        emailIsValid = true;
+      }
     }
-  }
 
-  set validatePassword(password) {
-    if (password.length >= 8) {
-      this.#password = password;
-    } else {
-      this.#password = null;
+    let password = prompt("Input password");
+    let passwordIsValid = false;
+    while (!passwordIsValid) {
+      if (!password || password.length < 8) {
+        alert("Password is not valid");
+        password = prompt("Input password");
+      } else {
+        passwordIsValid = true;
+      }
     }
-  }
 
-  set validateSelectedProgram(program) {
-    const validPrograms = ["JCWD", "JCDM", "JCDS", "JCUI/UX", "JCVD"];
-    if (validPrograms.includes(program.toUpperCase())) {
-      this.programSelected = program.toUpperCase();
-    } else {
-      this.programSelected = null;
+    let address = prompt("Input address");
+    let addressIsValid = false;
+    while (!addressIsValid) {
+      if (address.length < 1) {
+        alert("Address is not valid");
+        address = prompt("Input address");
+      } else {
+        addressIsValid = true;
+      }
     }
+
+    let phoneNumber = prompt("Input phone number");
+    let phoneNumberIsValid = false;
+    while (!phoneNumberIsValid) {
+      const phoneNumberRegex = /^((\+62)|0)(\d{3,4}-?){2}\d{3,4}$/;
+      if (!phoneNumberRegex.test(phoneNumber)) {
+        alert("Phone number is not valid");
+        phoneNumber = prompt("Input phone number");
+      } else {
+        phoneNumberIsValid = true;
+      }
+    }
+
+    let programSelected = prompt(
+      "Select your program \nJCWD\nJCDM\nJCDS\nJCUI/UX\nJCVD"
+    );
+    let programSelectedIsValid = false;
+    while (!programSelectedIsValid) {
+      const validPrograms = ["JCWD", "JCDM", "JCDS", "JCUI/UX", "JCVD"];
+      if (!validPrograms.includes(programSelected.toUpperCase())) {
+        alert("Select the correct program");
+        programSelected = prompt(
+          "Select your program \nJCWD\nJCDM\nJCDS\nJCUI/UX\nJCVD"
+        );
+      } else {
+        programSelectedIsValid = true;
+      }
+    }
+
+    return {
+      error: false,
+      data: { username, email, password, address, programSelected },
+    };
   }
 
   get getPassword() {
     return this.#password;
-  }
-
-  get getInfo() {
-    return `Username: ${this.username}\nEmail: ${this.email}\nPassword: ${
-      this.#password
-    }\nAddress: ${this.address}\nProgram Selected: ${this.programSelected}`;
   }
 }
 
 const student = new Student();
 const students = [];
 
-function insertStudent() {
-  let isValidUsername = false;
-  while (!isValidUsername) {
-    let username = prompt("Type your username");
-    student.validateUsername = username;
-    if (student.username) {
-      student.username = username;
-      isValidUsername = true;
-    } else {
-      alert("Username is not valid. Please try again.");
-    }
-  }
-
-  let isValidEmail = false;
-  while (!isValidEmail) {
-    let email = prompt("Type your email");
-    student.validateEmail = email;
-    console.log(student.email);
-    if (student.email) {
-      student.email = email;
-      isValidEmail = true;
-    } else {
-      alert("Email is not valid. Please try again.");
-    }
-  }
-
-  let isValidPassword = false;
-  while (!isValidPassword) {
-    let password = prompt("Type your password");
-    student.validatePassword = password;
-    if (student.getPassword) {
-      student.password = password;
-      isValidPassword = true;
-    } else {
-      alert("Password is not valid. Please try again.");
-    }
-  }
-
-  let phoneNumber = prompt("Type your phone number");
-  student.maskPhoneNumber = phoneNumber;
-
-  student.address = prompt("Type your address");
-
-  let isValidProgram = false;
-  while (!isValidProgram) {
-    let program = prompt(
-      `Select your program \nJCWD\nJCDM\nJCDS\nJCUI/UX\nJCVD`
+do {
+  const choices = prompt(
+    "Choose an option:\n1. Insert student\n2. Show student list"
+  );
+  if (choices === "1") {
+    const newStudent = Student.validateDataStudents();
+    const isEmailAlreadyExist = students.some(
+      (student) => student.email === newStudent.data.email
     );
-    student.validateSelectedProgram = program;
-    console.log(student.programSelected);
-    if (student.programSelected) {
-      student.programSelected = program.toUpperCase();
-      isValidProgram = true;
+    if (isEmailAlreadyExist) {
+      alert("Email is already exist");
     } else {
-      alert("Program is not valid. Please try again.");
+      students.push(newStudent.data);
+    }
+
+    alert(
+      `${students
+        .map(
+          (student, index) =>
+            `${index + 1}. ${student.username}(${student.programSelected}) - ${
+              student.email
+            }`
+        )
+        .join("\n")}`
+    );
+  } else if (choices === "2") {
+    if (students.length === 0) {
+      alert("No student available yet");
+    } else {
+      alert(
+        `${students
+          .map(
+            (student, index) =>
+              `${index + 1}. ${
+                student.username
+              }(${student.programSelected.toUpperCase()}) - ${student.email}`
+          )
+          .join("\n")}`
+      );
     }
   }
-
-  return student;
-}
-
-function showStudents(students) {
-  if (students.length === 0) {
-    alert("No students available.");
-  } else {
-    const info = students
-      .map((student, index) => {
-        if (student !== null) {
-          return (
-            `Student ${index + 1}:\n` +
-            `Username: ${student.username}\n` +
-            `Email: ${student.email}\n` +
-            `Address: ${student.address}\n` +
-            `Program Selected: ${student.programSelected}\n`
-          );
-        } else {
-          return "";
-        }
-      })
-      .join("\n");
-    alert("Student Information:\n" + info);
-    main();
-  }
-}
-
-function main() {
-  const choice = prompt("Choose an option:\n1. Insert\n2. Show");
-
-  switch (choice) {
-    case "1":
-      const newStudent = insertStudent();
-
-      if (newStudent) {
-        students.push(newStudent);
-        alert("Student inserted successfully!");
-      }
-      showStudents(students);
-      break;
-    case "2":
-      showStudents(students);
-      main();
-      break;
-    default:
-      main();
-      break;
-  }
-}
-
-main();
+} while (true);
