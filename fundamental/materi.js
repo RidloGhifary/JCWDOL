@@ -176,7 +176,7 @@ class Student {
   username;
   email;
   #password;
-  phoneNumber;
+  #phoneNumber;
   programSelected;
 
   constructor(address) {
@@ -187,12 +187,12 @@ class Student {
     if (username.length > 3) {
       this.username = username;
     } else {
-      throw new Error("Username is not valid");
+      this.username = null;
     }
   }
 
   set maskPhoneNumber(phoneNumber) {
-    this.phoneNumber = phoneNumber.slice(0, -5) + "*****";
+    this.#phoneNumber = phoneNumber.slice(0, -5) + "*****";
   }
 
   set validateEmail(email) {
@@ -200,16 +200,15 @@ class Student {
     if (emailRegex.test(email)) {
       this.email = email;
     } else {
-      throw new Error("Email is not valid");
+      this.email = null;
     }
   }
 
   set validatePassword(password) {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    if (passwordRegex.test(password)) {
+    if (password.length >= 8) {
       this.#password = password;
     } else {
-      throw new Error("Password is not valid");
+      this.#password = null;
     }
   }
 
@@ -218,25 +217,130 @@ class Student {
     if (validPrograms.includes(program.toUpperCase())) {
       this.programSelected = program.toUpperCase();
     } else {
-      throw new Error("Program selected is not valid");
+      this.programSelected = null;
     }
+  }
+
+  get getPassword() {
+    return this.#password;
   }
 
   get getInfo() {
     return `Username: ${this.username}\nEmail: ${this.email}\nPassword: ${
       this.#password
-    }\nAddress: ${this.address}\nPhone Number: ${
-      this.phoneNumber
-    }\nProgram Selected: ${this.programSelected}`;
+    }\nAddress: ${this.address}\nProgram Selected: ${this.programSelected}`;
   }
 }
 
-const student1 = new Student("Indonesia");
+const student = new Student();
+const students = [];
 
-student1.validateUsername = "ridlo achmad ghifary";
-student1.maskPhoneNumber = "08583022564";
-student1.validateEmail = "ridlo@gmail.com";
-student1.validatePassword = "Pass1234";
-student1.validateSelectedProgram = "jcwd";
+function insertStudent() {
+  let isValidUsername = false;
+  while (!isValidUsername) {
+    let username = prompt("Type your username");
+    student.validateUsername = username;
+    if (student.username) {
+      student.username = username;
+      isValidUsername = true;
+    } else {
+      alert("Username is not valid. Please try again.");
+    }
+  }
 
-console.log(student1.getInfo);
+  let isValidEmail = false;
+  while (!isValidEmail) {
+    let email = prompt("Type your email");
+    student.validateEmail = email;
+    console.log(student.email);
+    if (student.email) {
+      student.email = email;
+      isValidEmail = true;
+    } else {
+      alert("Email is not valid. Please try again.");
+    }
+  }
+
+  let isValidPassword = false;
+  while (!isValidPassword) {
+    let password = prompt("Type your password");
+    student.validatePassword = password;
+    if (student.getPassword) {
+      student.password = password;
+      isValidPassword = true;
+    } else {
+      alert("Password is not valid. Please try again.");
+    }
+  }
+
+  let phoneNumber = prompt("Type your phone number");
+  student.maskPhoneNumber = phoneNumber;
+
+  student.address = prompt("Type your address");
+
+  let isValidProgram = false;
+  while (!isValidProgram) {
+    let program = prompt(
+      `Select your program \nJCWD\nJCDM\nJCDS\nJCUI/UX\nJCVD`
+    );
+    student.validateSelectedProgram = program;
+    console.log(student.programSelected);
+    if (student.programSelected) {
+      student.programSelected = program.toUpperCase();
+      isValidProgram = true;
+    } else {
+      alert("Program is not valid. Please try again.");
+    }
+  }
+
+  return student;
+}
+
+function showStudents(students) {
+  if (students.length === 0) {
+    alert("No students available.");
+  } else {
+    const info = students
+      .map((student, index) => {
+        if (student !== null) {
+          return (
+            `Student ${index + 1}:\n` +
+            `Username: ${student.username}\n` +
+            `Email: ${student.email}\n` +
+            `Address: ${student.address}\n` +
+            `Program Selected: ${student.programSelected}\n`
+          );
+        } else {
+          return "";
+        }
+      })
+      .join("\n");
+    alert("Student Information:\n" + info);
+    main();
+  }
+}
+
+function main() {
+  const choice = prompt("Choose an option:\n1. Insert\n2. Show");
+
+  switch (choice) {
+    case "1":
+      const newStudent = insertStudent();
+
+      if (newStudent) {
+        students.push(newStudent);
+        alert("Student inserted successfully!");
+      }
+      showStudents(students);
+      break;
+    case "2":
+      showStudents(students);
+      main();
+      break;
+    default:
+      main();
+      break;
+  }
+}
+
+main();
