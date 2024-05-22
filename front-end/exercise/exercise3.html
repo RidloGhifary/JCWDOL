@@ -1,89 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Huckleberry — CSS for JavaScript Developers</title>
+    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap"
       rel="stylesheet" />
     <style>
       * {
+        box-sizing: border-box;
+        font-family: "Lato", sans-serif;
+      }
+
+      html,
+      body {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
       }
 
-      body {
-        font-family: "Poppins", sans-serif;
+      header {
+        border-bottom: 8px solid hsl(0deg 0% 60%);
       }
 
-      .sec {
+      h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin: 0;
+        margin-bottom: 3rem;
+      }
+
+      p {
+        font-size: 1.25rem; /* 20 / 16 = 1.25 */
+        line-height: 1.5;
+        margin: 0;
+        margin-bottom: 1rem;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        color: hsl(160deg 100% 30%);
+      }
+
+      .max-width-wrapper {
         max-width: 800px;
         margin: 0 auto;
+        padding: 0px 24px;
       }
 
-      .sec-1 {
-        text-align: left;
-        padding: 15px;
-        height: 50dvh;
-        padding-top: calc(50dvh - 35dvh);
+      .intro-chunk {
+        max-width: 415px;
+        padding-top: 96px;
+        padding-bottom: 64px;
       }
 
-      .sec-1 p:nth-child(2) {
-        margin: 20px 0 10px;
+      main {
+        background-color: hsl(0deg 0% 40%);
+        padding: 64px 0;
       }
 
-      .mark-text {
-        color: green;
-      }
-
-      .bottom {
-        background-color: gray;
-        height: 50dvh;
-        padding-top: calc(50dvh - 45dvh);
-      }
-
-      .bottom .sec-2 {
-        max-width: 800px;
+      .card {
         background-color: white;
-        height: max-content;
-        margin: auto;
-        padding: 30px;
-        border-bottom: 8px solid rgb(74, 74, 74);
+        padding: 24px;
+        margin: 0 -24px;
+        border-bottom: 8px solid hsl(0deg 0% 60%);
       }
 
-      .sec-2 h1 {
-        background-color: rgb(255, 170, 0);
-        width: max-content;
-        padding: 8px 18px;
-        padding-left: 38px;
-        margin-left: -38px;
-        margin-top: -20px;
-        border-bottom: 8px solid rgb(255, 153, 0);
-      }
-
-      .sec-2 p:nth-child(2) {
-        margin: 13px 0;
+      .indented-heading {
+        width: fit-content;
+        font-size: 1.5rem;
+        line-height: 1.2;
+        margin: 0;
+        margin-left: -32px;
+        margin-top: -16px;
+        margin-bottom: 1rem;
+        padding: 16px 32px;
+        background: hsl(45deg 100% 50%);
+        border-bottom: 8px solid hsl(45deg 100% 40%);
       }
     </style>
   </head>
   <body>
+    <header>
+      <div class="max-width-wrapper">
+        <div class="intro-chunk">
+          <h1 class="title">Huckleberry</h1>
+
+          <p>
+            An avant-garde agency focused on connecting
+            <strong>passion</strong> with <strong>logistics</strong>.
+          </p>
+
+          <p>A better way to solve the problems of tomorrow.</p>
+        </div>
+      </div>
+    </header>
     <main>
-      <section class="sec sec-1">
-        <h1>Huckleberry</h1>
-        <p>
-          An avant-garde agency focused on connecting
-          <b class="mark-text">passion</b> with
-          <b class="mark-text">logistics</b>
-        </p>
-        <p>A better way to solve the problems of tomorrow</p>
-      </section>
-      <section class="bottom">
-        <div class="sec sec-2">
-          <h1>Wealth comes from operations</h1>
+      <section class="max-width-wrapper">
+        <div class="card">
+          <h2 class="indented-heading">Wealth comes from operations</h2>
           <p>
             No modern business can thrive without developing a specialization in
             operations. Huckleberry has helped dozens of companies, from Fortune
