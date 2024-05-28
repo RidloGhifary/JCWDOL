@@ -102,10 +102,10 @@ const App = () => {
                 key={index}
               >
                 <div
+                  data-aos="fade-right"
                   className={`border-AlmostWhite ${index % 2 === 0 ? "order-last" : null} cursor-pointer select-none rounded-lg`}
                 >
                   <img
-                    data-aos="fade-right"
                     src={data.image}
                     alt={data.title}
                     className="h-[300px] w-full rounded-lg object-cover object-top transition-all duration-[7s] ease-linear hover:object-bottom"
