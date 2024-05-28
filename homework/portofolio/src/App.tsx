@@ -1,8 +1,12 @@
 import { Code, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import projectList from "./assets/projects.json";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const App = () => {
+  AOS.init({ once: true, delay: 100 });
+
   const skillsList = [
     "HTML",
     "CSS",
@@ -20,16 +24,22 @@ const App = () => {
   ];
 
   return (
-    <main className="bg-AlmostBlack text-AlmostWhite overflow-hidden ">
+    <main className="bg-AlmostBlack text-AlmostWhite overflow-hidden">
       <div className="mx-auto max-w-4xl px-4 lg:px-0">
         <section className="relative flex min-h-screen flex-col items-start justify-center pt-20 md:items-start md:justify-end md:py-2 md:pt-0">
-          <h1 className="Kalnia selection:bg-AlmostWhite selection:text-AlmostBlack text-7xl font-bold md:text-9xl">
+          <h1
+            data-aos="fade-down"
+            className="Kalnia selection:bg-AlmostWhite selection:text-AlmostBlack text-7xl font-bold md:text-9xl"
+          >
             H`i
             <br />
             I`M Ridlo
           </h1>
           <div className="mt-6 grid gap-8 md:grid-cols-2">
-            <p className="selection:bg-AlmostWhite selection:text-AlmostBlack leading-7">
+            <p
+              data-aos="fade-down"
+              className="selection:bg-AlmostWhite selection:text-AlmostBlack leading-7"
+            >
               This portfolio is my testament, a showcase of my blossoming skills
               and the fruits of my tireless learning. It&apos;s an invitation to
               embark on a collaborative journey, where together we can transform
@@ -37,7 +47,10 @@ const App = () => {
               let&apos;s craft something extraordinary, line by line, pixel by
               pixel.
             </p>
-            <div className="flex flex-wrap items-start justify-start gap-x-1 gap-y-1">
+            <div
+              data-aos="fade-down-left"
+              className="flex flex-wrap items-start justify-start gap-x-1 gap-y-1"
+            >
               {skillsList?.map((data) => (
                 <span
                   className="bg-SecondaryColor select-none rounded-xl px-4 py-2 font-semibold text-white"
@@ -49,7 +62,10 @@ const App = () => {
             </div>
           </div>
 
-          <ul className="selection:bg-AlmostWhite selection:text-AlmostBlack absolute right-[50%] top-0 mt-3 flex translate-x-[50%] gap-14 lg:-right-28 lg:top-[30%] lg:mt-0 lg:translate-x-0 lg:flex-col">
+          <ul
+            data-aos="fade-left"
+            className="selection:bg-AlmostWhite selection:text-AlmostBlack absolute right-[50%] top-0 mt-3 flex translate-x-[50%] gap-14 lg:-right-28 lg:top-[30%] lg:mt-0 lg:translate-x-0 lg:flex-col"
+          >
             <li className="text-center hover:underline lg:rotate-90">
               <Link to={"https://medium.com/@ridloghfry"} target="_blank">
                 Medium
@@ -72,12 +88,16 @@ const App = () => {
         </section>
 
         <section className="py-40">
-          <h1 className="Kalnia selection:bg-AlmostWhite selection:text-AlmostBlack before:stroke-AlmostWhite text-center text-4xl font-bold uppercase md:text-7xl">
+          <h1
+            data-aos="fade-down"
+            className="Kalnia selection:bg-AlmostWhite selection:text-AlmostBlack before:stroke-AlmostWhite text-center text-4xl font-bold uppercase md:text-7xl"
+          >
             project
           </h1>
           <div className="space-y-6">
             {projectList?.map((data, index: number) => (
               <div
+                data-aos="fade-up"
                 className="border-AlmostWhite/50 mt-16 grid items-center gap-4 rounded-xl border p-5 md:grid-cols-2"
                 key={index}
               >
@@ -85,12 +105,13 @@ const App = () => {
                   className={`border-AlmostWhite ${index % 2 === 0 ? "order-last" : null} cursor-pointer select-none rounded-lg`}
                 >
                   <img
+                    data-aos="fade-right"
                     src={data.image}
                     alt={data.title}
                     className="h-[300px] w-full rounded-lg object-cover object-top transition-all duration-[7s] ease-linear hover:object-bottom"
                   />
                 </div>
-                <div className="space-y-6 text-center">
+                <div data-aos="fade-left" className="space-y-6 text-center">
                   <h2 className="Kalnia text-SecondaryColor selection:bg-SecondaryColor selection:text-AlmostBlack text-5xl font-semibold">
                     {data.title}
                   </h2>
