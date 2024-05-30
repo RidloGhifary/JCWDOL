@@ -1,44 +1,27 @@
-import { useId, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
-const App = () => {
-  // const [state, setState] = useState(0);
+export default function App() {
   const [number, setNumber] = useState(0);
+  const [count, setCount] = useState(0);
 
-  // const passwordHintId = useId();
+  const incrementNumber = () => setNumber((prev) => prev + 1);
+  const incrementCount = () => setCount((prev) => prev + 1);
 
-  // const handleDecrement = () => {
-  //   setState((prev) => (prev -= 1));
-  // };
-
-  // const handleIncrement = () => {
-  //   setState((prev) => (prev += 1));
-  // };
-
-  const increment = () => {
-    setNumber(number + 1);
-  };
-
-  const isNumberEven = useMemo(() => {
+  const isEven = useMemo(() => {
     let i = 0;
 
-    while (i < 999999999) {
+    while (i < 200000000) {
       i++;
     }
 
     return number % 2 === 0;
-  }, []);
+  }, [number]);
 
   return (
-    <>
-      {/* <h1>{state}</h1>
-      <button onClick={handleDecrement}>-</button>
-      <button onClick={handleIncrement}>+</button> */}
-      <div style={{ marginTop: "10px" }}>
-        <p>{isNumberEven ? `${number} is Even!` : `${number} is Odd!`}</p>
-        <button onClick={increment}>Increment</button>
-      </div>
-    </>
+    <div className="App">
+      <button onClick={incrementNumber}>Number :{number}</button>
+      <div>{isEven ? `${number} is Even!` : `${number} is Odd!`}</div>
+      <button onClick={incrementCount}>Count :{count}</button>
+    </div>
   );
-};
-
-export default App;
+}
