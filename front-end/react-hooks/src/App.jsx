@@ -1,27 +1,25 @@
-import { useMemo, useState } from "react";
+import { useCallback, useState } from "react";
+import Todos from "./components/Todos";
 
-export default function App() {
-  const [number, setNumber] = useState(0);
+const App = () => {
   const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([]);
 
-  const incrementNumber = () => setNumber((prev) => prev + 1);
-  const incrementCount = () => setCount((prev) => prev + 1);
+  const increment = useCallback(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, []);
 
-  const isEven = useMemo(() => {
-    let i = 0;
-
-    while (i < 200000000) {
-      i++;
-    }
-
-    return number % 2 === 0;
-  }, [number]);
+  const addTodo = useCallback(() => {
+    setTodos((prevTodos) => [...prevTodos, "New Todo"]);
+  }, []);
 
   return (
-    <div className="App">
-      <button onClick={incrementNumber}>Number :{number}</button>
-      <div>{isEven ? `${number} is Even!` : `${number} is Odd!`}</div>
-      <button onClick={incrementCount}>Count :{count}</button>
+    <div>
+      <Todos todos={todos} addTodo={addTodo} />
+      <hr style={{ margin: "10px 0" }} />
+      <button onClick={increment}>Count: {count}</button>
     </div>
   );
-}
+};
+
+export default App;
