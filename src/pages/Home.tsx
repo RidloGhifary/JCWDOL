@@ -9,6 +9,7 @@ import BookingForm from "../components/BookingForm";
 import CarsModel from "../components/CarsModel";
 import WhyChooseUs from "../components/HomePage/WhyChooseUs";
 import Testimonial from "../components/HomePage/Testimonial";
+import Faq from "../components/HomePage/Faq";
 
 const Home: React.FC = () => {
   return (
@@ -58,6 +59,7 @@ const Home: React.FC = () => {
       <CarsModel />
       <WhyChooseUs />
       <Testimonial />
+      <Faq />
     </React.Fragment>
   );
 };
