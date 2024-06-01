@@ -1,19 +1,19 @@
 import React from "react";
-import AppStoreButton from "/download-sec/appstore.svg";
-import PlayStoreButton from "/download-sec/googleapp.svg";
-import FooterPhoneBg from "/download-sec/bg02.png";
+import AppStoreButton from "../assets/download-sec/appstore.svg";
+import PlayStoreButton from "../assets/download-sec/googleapp.svg";
+import FooterPhoneBg from "../assets/download-sec/bg02.png";
 import { Mail, PhoneCall } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
     <footer>
-      <section className="bg-backgroundLightGray relative mx-auto w-full p-4 py-16 md:px-24">
+      <section className="relative mx-auto w-full bg-backgroundLightGray p-4 py-16 md:px-24">
         <div className="grid lg:grid-cols-2">
           <div className="space-y-6">
             <h1 className="text-4xl font-bold leading-tight text-black md:text-5xl">
               Download our app to get most out of it
             </h1>
-            <p className="text-secondaryTextGray text-lg font-normal md:text-xl">
+            <p className="text-lg font-normal text-secondaryTextGray md:text-xl">
               Thrown shy denote ten ladies though ask saw. Or by to he going
               think order event music. Incommode so intention defective at
               convinced. Led income months itself and houses you.
@@ -22,12 +22,14 @@ const Footer: React.FC = () => {
               <img
                 src={AppStoreButton}
                 alt="download-store-button"
-                className="w-40"
+                width="160px"
+                height="100%"
               />
               <img
                 src={PlayStoreButton}
                 alt="download-store-button"
-                className="w-40"
+                width="160px"
+                height="100%"
               />
             </div>
           </div>
@@ -35,7 +37,8 @@ const Footer: React.FC = () => {
             <img
               src={FooterPhoneBg}
               alt="download-store-button"
-              className="w-full"
+              width="100%"
+              height="100%"
             />
           </div>
         </div>
@@ -44,26 +47,26 @@ const Footer: React.FC = () => {
       <section className="w-full p-4 py-16 md:px-16">
         <div className="mx-auto grid max-w-[1240px] gap-16 sm:grid-cols-2 md:grid-cols-4">
           <article className="md:col-span-2">
-            <h1 className="text-mainColor text-4xl font-semibold">
+            <h1 className="text-4xl font-semibold text-mainColor">
               Car Rental
             </h1>
-            <p className="text-secondaryTextGray my-3 font-normal">
+            <p className="my-3 font-normal text-secondaryTextGray">
               We offers a big range of vehicles for all your driving needs. We
               have the perfect car to meet your needs.
             </p>
-            <div className="text-mainColor mt-6 flex items-center gap-4 font-medium">
+            <div className="mt-6 flex items-center gap-4 font-medium text-mainColor">
               <PhoneCall size={28} color="#f4791f" />
               <span>(123)-123-456</span>
             </div>
-            <div className="text-mainColor flex items-center gap-4 font-medium">
+            <div className="flex items-center gap-4 font-medium text-mainColor">
               <Mail size={28} color="#f4791f" />
               <span>carRental@gmail.com</span>
             </div>
           </article>
 
-          <article className="text-secondaryTextGray text-left">
+          <article className="text-left text-secondaryTextGray">
             <h1 className="text-3xl font-bold text-black">Company</h1>
-            <ul className="text-secondaryTextGray mt-3 cursor-pointer space-y-3 font-normal hover:underline">
+            <ul className="mt-3 cursor-pointer space-y-3 font-normal text-secondaryTextGray hover:underline">
               <li>Jakarta</li>
               <li>Malaysia</li>
               <li>Singapore</li>
@@ -74,7 +77,7 @@ const Footer: React.FC = () => {
 
           <article className="text-left">
             <h1 className="text-3xl font-bold">Working Hours</h1>
-            <ul className="text-secondaryTextGray mt-3 cursor-pointer space-y-3 font-normal hover:underline">
+            <ul className="mt-3 cursor-pointer space-y-3 font-normal text-secondaryTextGray hover:underline">
               <li>Mon-Fri: 9:00AM - 9:00PM</li>
               <li>Sat-Sun: 24 Hours</li>
             </ul>
@@ -83,7 +86,7 @@ const Footer: React.FC = () => {
           <div className="md:col-span-2">
             <article className="text-center sm:text-left">
               <h1 className="text-3xl font-bold">Subscription</h1>
-              <p className="text-secondaryTextGray my-3 cursor-pointer font-normal hover:underline">
+              <p className="my-3 cursor-pointer font-normal text-secondaryTextGray hover:underline">
                 Subscribe your Email address for latest news & updates.
               </p>
             </article>
@@ -93,12 +96,12 @@ const Footer: React.FC = () => {
                 name="email"
                 id="email"
                 placeholder="Enter Email Address"
-                className="text-secondaryTextGray w-full bg-neutral-200 p-4 font-normal focus:outline-none"
+                className="w-full bg-neutral-200 p-4 font-normal text-secondaryTextGray focus:outline-none"
               />
               <input
                 type="submit"
                 value="Submit"
-                className="bg-mainColor hover:bg-mainColor/80 mt-3 w-full cursor-pointer p-4 font-semibold text-white shadow-2xl transition"
+                className="mt-3 w-full cursor-pointer bg-mainColor p-4 font-semibold text-white shadow-2xl transition hover:bg-mainColor/80"
               />
             </form>
           </div>
