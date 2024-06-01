@@ -7,7 +7,7 @@ import { Mail, PhoneCall } from "lucide-react";
 const Footer: React.FC = () => {
   return (
     <footer>
-      <section className="relative mx-auto w-full bg-backgroundLightGray p-4 py-16 md:px-24">
+      <section className="relative mx-auto w-full bg-backgroundLightGray p-4 py-16 md:px-14">
         <div className="grid lg:grid-cols-2">
           <div className="space-y-6">
             <h1 className="text-4xl font-bold leading-tight text-black md:text-5xl">
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
         </div>
       </section>
 
-      <section className="w-full p-4 py-16 md:px-16">
+      <section className="p-4 py-16 md:px-14">
         <div className="mx-auto grid max-w-[1240px] gap-16 sm:grid-cols-2 md:grid-cols-4">
           <article className="md:col-span-2">
             <h1 className="text-4xl font-semibold text-mainColor">

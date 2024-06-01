@@ -3,16 +3,16 @@ import React from "react";
 
 interface Props {
   children: React.ReactNode;
-  icon?: string;
+  icon?: React.ReactNode;
 }
 
 const Button: React.FC<Props> = ({ children, icon }) => {
   return (
     <button
-      className={`bg-mainColor border-mainColor hover:text-mainColor border px-6 py-2 font-semibold text-white transition hover:bg-white`}
+      className={`flex items-center justify-center gap-4 border border-mainColor bg-mainColor px-6 py-2 font-semibold text-white transition hover:bg-white hover:text-mainColor`}
     >
       {children}
-      {icon && <img src={icon} alt="icon" />}
+      {icon}
     </button>
   );
 };
