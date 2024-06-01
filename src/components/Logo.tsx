@@ -1,5 +1,5 @@
 import React from "react";
-import LogoCompany from "../assets/logo.png";
+import LogoCompany from "../assets/logo.webp";
 import { Link } from "react-router-dom";
 
 const Logo: React.FC = () => {

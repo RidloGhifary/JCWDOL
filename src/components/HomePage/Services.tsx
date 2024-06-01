@@ -1,7 +1,7 @@
 import React from "react";
-import Time from "../../assets/icons/time.png";
-import PayLater from "../../assets/icons/paylater.png";
-import Rating from "../../assets/icons/rating.png";
+import Time from "../../assets/icons/time.webp";
+import PayLater from "../../assets/icons/paylater.webp";
+import Rating from "../../assets/icons/rating.webp";
 import SectionTitle from "../SectionTitle";
 
 const Services: React.FC = () => {
@@ -17,7 +17,13 @@ const Services: React.FC = () => {
 
       <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-3">
         <div className="flex flex-col items-center justify-center text-center">
-          <img src={Time} alt="time icon" width={120} height={120} />
+          <img
+            src={Time}
+            alt="time icon"
+            width={120}
+            height={120}
+            loading="lazy"
+          />
           <h1 className="my-3 text-2xl font-bold text-mainColor">
             Flexible time
           </h1>
@@ -27,7 +33,13 @@ const Services: React.FC = () => {
           </p>
         </div>
         <div className="flex flex-col items-center justify-center text-center">
-          <img src={Rating} alt="rating icon" width={90} height={90} />
+          <img
+            src={Rating}
+            alt="rating icon"
+            width={90}
+            height={90}
+            loading="lazy"
+          />
           <h1 className="my-3 text-2xl font-bold text-mainColor">
             Real customer rating
           </h1>
@@ -38,7 +50,13 @@ const Services: React.FC = () => {
           </p>
         </div>
         <div className="flex flex-col items-center justify-center text-center">
-          <img src={PayLater} alt="paylater icon" width={100} height={100} />
+          <img
+            src={PayLater}
+            alt="paylater icon"
+            width={100}
+            height={100}
+            loading="lazy"
+          />
           <h1 className="my-3 text-2xl font-bold text-mainColor">Paylater</h1>
           <p className="w-[70%] text-secondaryTextGray md:w-full">
             Experience the convenience of 'Pay Later.' Secure your booking now

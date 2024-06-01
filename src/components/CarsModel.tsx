@@ -1,6 +1,6 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
-import CarsModelData from "../assets/carsModel.json";
+import CarsModelData from "../assets/dataJson/carsModel.json";
 
 const CarsModel: React.FC = () => {
   const [carIndex, setCarIndex] = React.useState<number>(1);

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-display: swap;
+}
+
 td,
 th {
   padding: 16px;
