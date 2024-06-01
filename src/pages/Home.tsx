@@ -47,10 +47,17 @@ const Home: React.FC = () => {
           </div>
 
           <div className="relative hidden select-none lg:block">
-            <img src={CarHeader} width="100%" height="100%" loading="lazy" />
+            <img
+              src={CarHeader}
+              alt="car-header"
+              width="100%"
+              height="100%"
+              loading="lazy"
+            />
             <div>
               <img
                 src={BackgroundCity}
+                alt="background-city-header"
                 width="100%"
                 height="100%"
                 loading="lazy"
