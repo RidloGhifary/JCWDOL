@@ -30,9 +30,9 @@ const Testimonial: React.FC = () => {
                 />
                 <div>
                   <p className="text-lg font-medium">{data.name}</p>
-                  <span className="block text-sm text-secondaryTextGray">
+                  <time className="block text-sm text-secondaryTextGray">
                     {data.date}
-                  </span>
+                  </time>
                 </div>
               </div>
               <Quote size={60} color="#f47920" weight="bold" />
