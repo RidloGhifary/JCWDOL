@@ -3,18 +3,25 @@ import React from "react";
 import CarHeader from "../assets/car-for-header.webp";
 import BackgroundCity from "../assets/header-bg.png";
 import Button from "../components/ui/Button";
-import Services from "../components/HomePage/Services";
-import CompanyOverview from "../components/HomePage/CompanyOverview";
-import BookingForm from "../components/BookingForm";
-import CarsModel from "../components/CarsModel";
-import WhyChooseUs from "../components/HomePage/WhyChooseUs";
-import Testimonial from "../components/HomePage/Testimonial";
-import Faq from "../components/HomePage/Faq";
+
+const Services = React.lazy(() => import("../components/HomePage/Services"));
+const CompanyOverview = React.lazy(
+  () => import("../components/HomePage/CompanyOverview"),
+);
+const BookingForm = React.lazy(() => import("../components/BookingForm"));
+const CarsModel = React.lazy(() => import("../components/CarsModel"));
+const WhyChooseUs = React.lazy(
+  () => import("../components/HomePage/WhyChooseUs"),
+);
+const Testimonial = React.lazy(
+  () => import("../components/HomePage/Testimonial"),
+);
+const Faq = React.lazy(() => import("../components/HomePage/Faq"));
 
 const Home: React.FC = () => {
   return (
     <React.Fragment>
-      <section className="h-[85dvh] items-center justify-center p-4 py-16 md:px-14">
+      <section className="items-center justify-center p-4 py-16 md:px-14">
         <div className="grid gap-2 lg:grid-cols-2">
           <div className="space-y-4">
             <span className="text-base font-semibold md:text-lg">
@@ -53,13 +60,15 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <Services />
-      <CompanyOverview teams={true} />
-      <BookingForm />
-      <CarsModel />
-      <WhyChooseUs />
-      <Testimonial />
-      <Faq />
+      <React.Suspense fallback={<p className="text-center">Loading...</p>}>
+        <Services />
+        <CompanyOverview teams={true} />
+        <BookingForm />
+        <CarsModel />
+        <WhyChooseUs />
+        <Testimonial />
+        <Faq />
+      </React.Suspense>
     </React.Fragment>
   );
 };
