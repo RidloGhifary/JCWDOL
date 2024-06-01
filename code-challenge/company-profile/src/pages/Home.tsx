@@ -4,6 +4,7 @@ import CarHeader from "../assets/car-for-header.webp";
 import BackgroundCity from "../assets/header-bg.png";
 import Button from "../components/ui/Button";
 import Services from "../components/HomePage/Services";
+import CompanyOverview from "../components/HomePage/CompanyOverview";
 
 const Home: React.FC = () => {
   return (
@@ -48,6 +49,7 @@ const Home: React.FC = () => {
       </section>
 
       <Services />
+      <CompanyOverview teams={true} />
     </React.Fragment>
   );
 };
