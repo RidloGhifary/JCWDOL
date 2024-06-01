@@ -7,6 +7,7 @@ import Services from "../components/HomePage/Services";
 import CompanyOverview from "../components/HomePage/CompanyOverview";
 import BookingForm from "../components/BookingForm";
 import CarsModel from "../components/CarsModel";
+import WhyChooseUs from "../components/HomePage/WhyChooseUs";
 
 const Home: React.FC = () => {
   return (
@@ -54,6 +55,7 @@ const Home: React.FC = () => {
       <CompanyOverview teams={true} />
       <BookingForm />
       <CarsModel />
+      <WhyChooseUs />
     </React.Fragment>
   );
 };
