@@ -5,6 +5,8 @@ import BackgroundCity from "../assets/header-bg.png";
 import Button from "../components/ui/Button";
 import Services from "../components/HomePage/Services";
 import CompanyOverview from "../components/HomePage/CompanyOverview";
+import BookingForm from "../components/BookingForm";
+import CarsModel from "../components/CarsModel";
 
 const Home: React.FC = () => {
   return (
@@ -50,6 +52,8 @@ const Home: React.FC = () => {
 
       <Services />
       <CompanyOverview teams={true} />
+      <BookingForm />
+      <CarsModel />
     </React.Fragment>
   );
 };
