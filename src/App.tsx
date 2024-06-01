@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+
+const Home = React.lazy(() => import("./pages/Home"));
 
 const App: React.FC = () => {
   return (
