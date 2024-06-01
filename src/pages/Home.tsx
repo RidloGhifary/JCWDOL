@@ -8,6 +8,7 @@ import CompanyOverview from "../components/HomePage/CompanyOverview";
 import BookingForm from "../components/BookingForm";
 import CarsModel from "../components/CarsModel";
 import WhyChooseUs from "../components/HomePage/WhyChooseUs";
+import Testimonial from "../components/HomePage/Testimonial";
 
 const Home: React.FC = () => {
   return (
@@ -56,6 +57,7 @@ const Home: React.FC = () => {
       <BookingForm />
       <CarsModel />
       <WhyChooseUs />
+      <Testimonial />
     </React.Fragment>
   );
 };
