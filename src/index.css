@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+td,
+th {
+  padding: 16px;
+  border: 1px solid #f47920;
+  text-align: center;
+  width: 50%;
+  font-weight: 500;
+}
