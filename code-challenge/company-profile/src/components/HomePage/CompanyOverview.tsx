@@ -1,6 +1,6 @@
 import React from "react";
-import CEO from "../../assets/ceo-photo.jpg";
-import TeamsDatas from "../../assets/teams.json";
+import CEO from "../../assets/ceo-photo.webp";
+import TeamsDatas from "../../assets/dataJson/teams.json";
 
 interface Props {
   reverse?: boolean;
@@ -22,6 +22,7 @@ const CompanyOverview: React.FC<Props> = ({
             alt="ceo-photo"
             width="300px"
             height="100%"
+            loading="lazy"
             className="rounded-full border-8 border-mainColor"
           />
         </div>

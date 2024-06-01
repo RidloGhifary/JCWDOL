@@ -1,6 +1,6 @@
 import React from "react";
 import SectionTitle from "../SectionTitle";
-import TestimonialDatas from "../../assets/testimonial.json";
+import TestimonialDatas from "../../assets/dataJson/testimonial.json";
 import { Quote } from "lucide-react";
 
 const Testimonial: React.FC = () => {
@@ -25,6 +25,7 @@ const Testimonial: React.FC = () => {
                   alt="customer-1"
                   width="50px"
                   height="50px"
+                  loading="lazy"
                   className="h-[50px] w-[50px] rounded-full object-cover object-center"
                 />
                 <div>

@@ -1,5 +1,5 @@
 import React from "react";
-import ThreeCarsImage from "../../assets/three-cars.png";
+import ThreeCarsImage from "../../assets/three-cars.webp";
 import Icon1 from "../../assets/icons/car.png";
 import Icon2 from "../../assets/icons/money-and-hand.png";
 import Icon3 from "../../assets/icons/money.png";
@@ -24,6 +24,7 @@ const WhyChooseUs: React.FC = () => {
           alt="three-cars-image"
           width="100%"
           height="100%"
+          loading="lazy"
           className="mx-auto"
         />
 
@@ -55,7 +56,13 @@ const WhyChooseUs: React.FC = () => {
 
           <div className="space-y-8">
             <div className="-ml-2 flex items-center gap-3">
-              <img src={Icon1} alt="icon1" width="150px" height="150px" />
+              <img
+                src={Icon1}
+                alt="icon1"
+                width="150px"
+                height="150px"
+                loading="lazy"
+              />
               <div className="flex flex-col gap-2">
                 <p className="text-2xl font-bold">Cross Country Drive</p>
                 <p className="text-sm font-light text-secondaryTextGray">
@@ -66,7 +73,13 @@ const WhyChooseUs: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <img src={Icon2} alt="icon1" width="150px" height="150px" />
+              <img
+                src={Icon2}
+                alt="icon1"
+                width="150px"
+                height="150px"
+                loading="lazy"
+              />
               <div className="flex flex-col gap-2">
                 <p className="text-2xl font-bold">All Inclusive Pricing</p>
                 <p className="text-sm font-light text-secondaryTextGray">
@@ -77,7 +90,13 @@ const WhyChooseUs: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <img src={Icon3} alt="icon1" width="150px" height="150px" />
+              <img
+                src={Icon3}
+                alt="icon1"
+                width="150px"
+                height="150px"
+                loading="lazy"
+              />
               <div className="flex flex-col gap-2">
                 <p className="text-2xl font-bold">No Hidden Charges</p>
                 <p className="text-sm font-light text-secondaryTextGray">

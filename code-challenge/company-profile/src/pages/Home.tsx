@@ -1,7 +1,7 @@
 import { CheckCircle, ChevronRight } from "lucide-react";
 import React from "react";
 import CarHeader from "../assets/car-for-header.webp";
-import BackgroundCity from "../assets/header-bg.png";
+import BackgroundCity from "../assets/header-bg.webp";
 import Button from "../components/ui/Button";
 
 const Services = React.lazy(() => import("../components/HomePage/Services"));
