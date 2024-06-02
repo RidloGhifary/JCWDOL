@@ -1,12 +1,16 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
 import { UseTeamsContext } from "../context/TeamsContext";
+import { useLocation } from "react-router-dom";
 
 const Teams: React.FC = () => {
+  const { pathname } = useLocation();
   const { teamMembers } = UseTeamsContext();
 
   return (
-    <section className="p-4 py-16 md:px-14">
+    <section
+      className={`p-4 ${pathname === "/teams" ? "pb-16" : "py-16"} md:px-14`}
+    >
       <SectionTitle
         title="Meet The Teams Behind"
         subTitle="Our Team"
