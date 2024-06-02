@@ -1,6 +1,7 @@
 import React from "react";
 import CEO from "../../assets/ceo-photo.webp";
 import TeamsDatas from "../../assets/dataJson/teams.json";
+import { useLocation } from "react-router-dom";
 
 interface Props {
   reverse?: boolean;
@@ -13,9 +14,13 @@ const CompanyOverview: React.FC<Props> = ({
   teams,
   additionalDesc,
 }) => {
+  const { pathname } = useLocation();
+
   return (
-    <section className="p-4 py-16 md:px-14">
-      <div className="grid items-center justify-center md:grid-cols-2">
+    <section
+      className={`p-4 ${pathname === "/about" ? "pb-16" : "py-16"} md:px-14`}
+    >
+      <div className="grid items-center justify-center gap-6 md:grid-cols-2 md:gap-0">
         <div className={`mx-auto ${reverse && "order-2"}`}>
           <img
             src={CEO}
