@@ -22,6 +22,9 @@ const Faq: React.FC = () => {
       <img
         src={FaqCar}
         alt="faq-car"
+        loading="lazy"
+        width={360}
+        height={160}
         className="absolute bottom-0 left-0 -z-10"
       />
 
