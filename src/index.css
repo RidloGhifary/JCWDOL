@@ -24,3 +24,8 @@ th {
   width: 50%;
   font-weight: 500;
 }
+
+img {
+  display: block;
+  height: auto;
+}

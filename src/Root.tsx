@@ -1,9 +1,10 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import App from "./App";
 import { TeamsContextProvider } from "./context/TeamsContext";
+import { useLocation } from "react-router-dom";
+import App from "./App";
+
+import Navbar from "./components/Navbar";
+const Footer = React.lazy(() => import("./components/Footer"));
 
 const Root: React.FC = () => {
   const location = useLocation();
@@ -15,7 +16,11 @@ const Root: React.FC = () => {
         <main className="container max-w-7xl">
           {!isNotFoundPage && <Navbar />}
           <App />
-          {!isNotFoundPage && <Footer />}
+          {!isNotFoundPage && (
+            <React.Suspense fallback={<p className="text-center">Loading</p>}>
+              <Footer />
+            </React.Suspense>
+          )}
         </main>
       </TeamsContextProvider>
     </React.StrictMode>
