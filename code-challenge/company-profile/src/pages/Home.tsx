@@ -2,7 +2,6 @@ import { CheckCircle, ChevronRight } from "lucide-react";
 import React from "react";
 import CarHeader from "../assets/car-for-header.webp";
 import BackgroundCity from "../assets/header-bg.webp";
-import Button from "../components/ui/Button";
 
 const Services = React.lazy(() => import("../components/HomePage/Services"));
 const CompanyOverview = React.lazy(
@@ -36,10 +35,13 @@ const Home: React.FC = () => {
               flexible pick-up options and much more.
             </p>
             <div className="flex gap-2">
-              <Button icon={<CheckCircle size={25} />}>Book</Button>
-              <button className="flex items-center gap-3 border border-black bg-black px-6 py-4 font-bold text-white transition">
+              <button className="flex items-center justify-center gap-4 border border-mainColor bg-mainColor px-6 py-2 font-semibold text-white transition hover:bg-white hover:text-mainColor">
+                Book
+                <CheckCircle size={25} />
+              </button>
+              <button className="flex items-center gap-3 border border-black bg-black px-6 py-4 font-bold text-white transition hover:bg-white hover:text-black">
                 Learn more
-                <ChevronRight size={25} color="#ffffff" />
+                <ChevronRight size={25} />
               </button>
             </div>
           </div>
