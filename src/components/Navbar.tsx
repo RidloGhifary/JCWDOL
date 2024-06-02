@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "./ui/Button";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
@@ -40,8 +39,12 @@ const Navbar: React.FC = () => {
       </nav>
 
       <div className="mr-4 flex flex-1 items-center justify-end gap-4 md:mr-0 md:gap-8">
-        <Button>Login</Button>
-        <Button>Register</Button>
+        <button className="flex items-center justify-center gap-4 border border-mainColor bg-mainColor px-6 py-2 font-semibold text-white transition hover:bg-white hover:text-mainColor">
+          Login
+        </button>
+        <button className="flex items-center justify-center gap-4 border border-mainColor bg-mainColor px-6 py-2 font-semibold text-white transition hover:bg-white hover:text-mainColor">
+          Register
+        </button>
       </div>
 
       <div className="flex items-center gap-2">
