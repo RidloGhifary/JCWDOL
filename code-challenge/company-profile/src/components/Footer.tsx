@@ -21,28 +21,28 @@ const Footer: React.FC = () => {
             <div className="flex items-center gap-10">
               <img
                 src={AppStoreButton}
-                alt="download-store-button"
+                alt="App Store"
                 width="160"
-                height="40"
+                height="100"
                 loading="lazy"
                 className="select-none"
               />
               <img
                 src={PlayStoreButton}
-                alt="download-store-button"
+                alt="Google Play"
                 width="160"
-                height="40"
+                height="100"
                 loading="lazy"
                 className="select-none"
               />
             </div>
           </div>
-          <div className="pointer-events-none absolute bottom-0 right-0 hidden overflow-hidden lg:block">
+          <div className="pointer-events-none absolute bottom-0 right-0 hidden lg:block">
             <img
               src={FooterPhoneBg}
-              alt="download-store-button"
-              width="1100"
-              height="300"
+              alt="Footer background"
+              width="100%"
+              height="100%"
               loading="lazy"
             />
           </div>
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
               Car Rental
             </h1>
             <p className="my-3 font-normal text-secondaryTextGray">
-              We offers a big range of vehicles for all your driving needs. We
+              We offer a big range of vehicles for all your driving needs. We
               have the perfect car to meet your needs.
             </p>
             <div className="mt-6 flex items-center gap-4 font-medium text-mainColor">
@@ -71,28 +71,28 @@ const Footer: React.FC = () => {
 
           <article className="text-left text-secondaryTextGray">
             <h1 className="text-3xl font-bold text-black">Company</h1>
-            <ul className="mt-3 cursor-pointer space-y-3 font-normal text-secondaryTextGray hover:underline">
-              <li>Jakarta</li>
-              <li>Malaysia</li>
-              <li>Singapore</li>
-              <li>Australia</li>
-              <li>New York</li>
+            <ul className="mt-3 space-y-3">
+              <li className="hover:underline">Jakarta</li>
+              <li className="hover:underline">Malaysia</li>
+              <li className="hover:underline">Singapore</li>
+              <li className="hover:underline">Australia</li>
+              <li className="hover:underline">New York</li>
             </ul>
           </article>
 
           <article className="text-left">
             <h1 className="text-3xl font-bold">Working Hours</h1>
-            <ul className="mt-3 cursor-pointer space-y-3 font-normal text-secondaryTextGray hover:underline">
-              <li>Mon-Fri: 9:00AM - 9:00PM</li>
-              <li>Sat-Sun: 24 Hours</li>
+            <ul className="mt-3 space-y-3 text-secondaryTextGray">
+              <li className="hover:underline">Mon-Fri: 9:00AM - 9:00PM</li>
+              <li className="hover:underline">Sat-Sun: 24 Hours</li>
             </ul>
           </article>
 
           <div className="md:col-span-2">
             <article className="text-center sm:text-left">
               <h1 className="text-3xl font-bold">Subscription</h1>
-              <p className="my-3 cursor-pointer font-normal text-secondaryTextGray hover:underline">
-                Subscribe your Email address for latest news & updates.
+              <p className="my-3">
+                Subscribe to your email address for the latest news & updates.
               </p>
             </article>
             <form>
@@ -101,12 +101,12 @@ const Footer: React.FC = () => {
                 name="email"
                 id="email"
                 placeholder="Enter Email Address"
-                className="w-full bg-neutral-200 p-4 font-normal text-secondaryTextGray focus:outline-none"
+                className="w-full bg-neutral-200 p-4 focus:outline-mainColor"
               />
               <input
                 type="submit"
                 value="Submit"
-                className="mt-3 w-full cursor-pointer bg-mainColor p-4 font-semibold text-white shadow-2xl transition hover:bg-mainColor/80"
+                className="mt-3 w-full cursor-pointer bg-mainColor p-4 text-white shadow-2xl transition hover:bg-mainColor/80"
               />
             </form>
           </div>
