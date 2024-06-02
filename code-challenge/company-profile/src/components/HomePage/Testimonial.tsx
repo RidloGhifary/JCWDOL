@@ -35,7 +35,7 @@ const Testimonial: React.FC = () => {
                   </time>
                 </div>
               </div>
-              <Quote size={60} color="#f47920" weight="bold" />
+              <Quote size={60} color="#f47920" />
             </div>
           </div>
         ))}
