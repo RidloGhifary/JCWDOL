@@ -2,6 +2,7 @@ import React from "react";
 import CompanyOverview from "../components/HomePage/CompanyOverview";
 import TimeLine from "../components/AboutPage/TimeLine";
 import Teams from "../components/Teams";
+import Values from "../components/AboutPage/Values";
 
 const About: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const About: React.FC = () => {
       />
       <TimeLine />
       <Teams />
+      <Values />
     </React.Fragment>
   );
 };
