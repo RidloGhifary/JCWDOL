@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const About = React.lazy(() => import("./pages/About"));
+const Cars = React.lazy(() => import("./pages/Cars"));
 
 const App: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/cars" element={<p>Cars page</p>} />
+        <Route path="/cars" element={<Cars />} />
         <Route path="/teams" element={<p>Teams page</p>} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

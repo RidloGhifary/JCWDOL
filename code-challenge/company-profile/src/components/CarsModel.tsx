@@ -1,19 +1,23 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
 import CarsModelData from "../assets/dataJson/carsModel.json";
+import { useLocation } from "react-router-dom";
 
 const CarsModel: React.FC = () => {
+  const { pathname } = useLocation();
   const [carIndex, setCarIndex] = React.useState<number>(1);
 
   return (
-    <section className="space-y-6 p-4 py-16 md:px-14">
+    <section
+      className={`p-4 ${pathname === "/cars" ? "pb-16" : "py-16"} md:px-14`}
+    >
       <SectionTitle
         subTitle="Vehicle model"
         title="Our rental fleet"
         description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque deserunt culpa dolorem autem explicabo accusantium!"
       />
 
-      <div className="grid grid-cols-1 justify-center gap-2 lg:grid-cols-4">
+      <div className="mt-16 grid grid-cols-1 justify-center gap-2 lg:grid-cols-4">
         <div className="border-t border-mainColor">
           {CarsModelData?.map((car, index) => (
             <p
