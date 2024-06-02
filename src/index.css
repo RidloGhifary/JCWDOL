@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .highlightedMainColorText {
+    @apply selection:bg-mainColor selection:text-white;
+  }
+
+  .highlightedText {
+    @apply selection:bg-black selection:text-white;
+  }
+}
+
 body {
   font-display: swap;
 }
