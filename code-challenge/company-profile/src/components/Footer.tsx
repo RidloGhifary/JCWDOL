@@ -22,27 +22,27 @@ const Footer: React.FC = () => {
               <img
                 src={AppStoreButton}
                 alt="download-store-button"
-                width="160px"
-                height="100%"
+                width="160"
+                height="40"
                 loading="lazy"
                 className="select-none"
               />
               <img
                 src={PlayStoreButton}
                 alt="download-store-button"
-                width="160px"
-                height="100%"
+                width="160"
+                height="40"
                 loading="lazy"
                 className="select-none"
               />
             </div>
           </div>
-          <div className="pointer-events-none absolute bottom-0 right-0 hidden lg:block">
+          <div className="pointer-events-none absolute bottom-0 right-0 hidden overflow-hidden lg:block">
             <img
               src={FooterPhoneBg}
               alt="download-store-button"
-              width="100%"
-              height="100%"
+              width="1100"
+              height="300"
               loading="lazy"
             />
           </div>
