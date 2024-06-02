@@ -12,7 +12,7 @@ const Testimonial: React.FC = () => {
         description="Discover the positive impact we've made on the our clients by reading through their testimonials. Our clients have experienced our service and results, and they're eager to share their positive experiences with you."
       />
 
-      <div className="grid grid-cols-2 items-center justify-center gap-4">
+      <div className="grid items-center justify-center gap-4 md:grid-cols-2">
         {TestimonialDatas?.map((data, index) => (
           <div key={index} className="rounded-md bg-white p-8 shadow-md">
             <p className="line-clamp-3 font-medium text-black">
