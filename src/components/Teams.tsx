@@ -35,6 +35,8 @@ const Teams: React.FC = () => {
               <img
                 src={teamMember.picture.thumbnail}
                 alt={`${teamMember.name.first} ${teamMember.name.last}`}
+                width="360"
+                height="360"
                 loading="lazy"
                 className="h-24 w-24 rounded-full object-cover"
               />
