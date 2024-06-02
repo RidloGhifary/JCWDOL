@@ -35,6 +35,7 @@ const CarsModel: React.FC = () => {
             alt="cars-name"
             width="100%"
             height="100%"
+            loading="lazy"
           />
         </div>
         <div className="">
