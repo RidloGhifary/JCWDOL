@@ -36,12 +36,10 @@ const Home: React.FC = () => {
               flexible pick-up options and much more.
             </p>
             <div className="flex gap-2">
-              <Button icon={<CheckCircle size={25} weight="bold" />}>
-                Book
-              </Button>
+              <Button icon={<CheckCircle size={25} />}>Book</Button>
               <button className="flex items-center gap-3 border border-black bg-black px-6 py-4 font-bold text-white transition">
                 Learn more
-                <ChevronRight size={25} color="#ffffff" weight="bold" />
+                <ChevronRight size={25} color="#ffffff" />
               </button>
             </div>
           </div>
