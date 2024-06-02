@@ -100,6 +100,7 @@ const Footer: React.FC = () => {
                 type="email"
                 name="email"
                 id="email"
+                autoComplete="email"
                 placeholder="Enter Email Address"
                 className="w-full bg-neutral-200 p-4 focus:outline-mainColor"
               />
