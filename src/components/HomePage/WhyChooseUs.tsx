@@ -50,7 +50,7 @@ const WhyChooseUs: React.FC = () => {
               className="hover:shadow-orange mt-3 flex w-[165px] items-center gap-3 rounded-md bg-mainColor px-4 py-2 text-center font-semibold text-white transition hover:scale-105"
             >
               <button>More Detail</button>
-              <ChevronRight size={28} color="#ffffff" weight="bold" />
+              <ChevronRight size={28} color="#ffffff" />
             </Link>
           </div>
 

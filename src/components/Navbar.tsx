@@ -49,14 +49,12 @@ const Navbar: React.FC = () => {
           <Menu
             size={30}
             color="#f47920"
-            weight="bold"
             className={showNavbarMobile ? "hidden" : "block"}
             onClick={handleNavbarMobile}
           />
           <X
             size={30}
             color="#f47920"
-            weight="bold"
             className={showNavbarMobile ? "block" : "hidden"}
             onClick={handleNavbarMobile}
           />
