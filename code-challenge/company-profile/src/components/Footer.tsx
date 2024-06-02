@@ -1,7 +1,7 @@
 import React from "react";
 import AppStoreButton from "../assets/download-sec/appstore.svg";
 import PlayStoreButton from "../assets/download-sec/googleapp.svg";
-import FooterPhoneBg from "../assets/download-sec/bg02.png";
+import FooterPhoneBg from "../assets/download-sec/bg02.webp";
 import { Mail, PhoneCall } from "lucide-react";
 
 const Footer: React.FC = () => {
