@@ -1,6 +1,6 @@
 import React from "react";
-import AppStoreButton from "../assets/download-sec/appstore.svg";
-import PlayStoreButton from "../assets/download-sec/googleapp.svg";
+import AppStoreButton from "../assets/download-sec/appstore.webp";
+import PlayStoreButton from "../assets/download-sec/googleapp.webp";
 import FooterPhoneBg from "../assets/download-sec/bg02.webp";
 import { Mail, PhoneCall } from "lucide-react";
 
@@ -24,12 +24,16 @@ const Footer: React.FC = () => {
                 alt="download-store-button"
                 width="160px"
                 height="100%"
+                loading="lazy"
+                className="select-none"
               />
               <img
                 src={PlayStoreButton}
                 alt="download-store-button"
                 width="160px"
                 height="100%"
+                loading="lazy"
+                className="select-none"
               />
             </div>
           </div>
@@ -39,6 +43,7 @@ const Footer: React.FC = () => {
               alt="download-store-button"
               width="100%"
               height="100%"
+              loading="lazy"
             />
           </div>
         </div>
