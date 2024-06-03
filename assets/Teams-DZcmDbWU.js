@@ -1,0 +1,2 @@
+const __vite__fileDeps=["assets/Teams-hoAZl1cT.js","assets/index-C_rFL0PT.js","assets/index-Cmvuhm7t.css","assets/SectionTitle-Bqdb1gza.js"],__vite__mapDeps=i=>i.map(i=>__vite__fileDeps[i]);
+import{R as s,_ as t,j as e}from"./index-C_rFL0PT.js";const a=s.lazy(()=>t(()=>import("./Teams-hoAZl1cT.js"),__vite__mapDeps([0,1,2,3]))),n=()=>e.jsx(s.Fragment,{children:e.jsx(s.Suspense,{fallback:e.jsx("p",{className:"text-center",children:"Loading..."}),children:e.jsx(a,{})})});export{n as default};
