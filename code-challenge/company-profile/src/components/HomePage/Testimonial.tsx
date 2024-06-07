@@ -3,6 +3,7 @@ import SectionTitle from "../SectionTitle";
 import { Quote } from "lucide-react";
 import client from "../../utils/contentful";
 import { sanitizeEntries } from "../../utils/sanitizeEntries";
+import { formatDate } from "../../utils/formatDate";
 
 export interface Entry {
   sys: {
@@ -85,7 +86,7 @@ const Testimonial: React.FC = () => {
                     {entry?.fields?.username}
                   </p>
                   <time className="block text-sm text-secondaryTextGray">
-                    {entry?.fields?.createdAt}
+                    {formatDate(entry?.fields?.createdAt)}
                   </time>
                 </div>
               </div>
