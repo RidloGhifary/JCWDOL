@@ -1,7 +1,42 @@
 import React from "react";
 import { Mail, PhoneCall } from "lucide-react";
+import { Toast } from "../utils/Toast";
 
 const Footer: React.FC = () => {
+  const [email, setEmail] = React.useState<string>("");
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!email) {
+      Toast.fire({
+        icon: "error",
+        title: "Email is required",
+      });
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      Toast.fire({
+        icon: "error",
+        title: "Invalid email address",
+      });
+      return;
+    }
+
+    Toast.fire({
+      icon: "success",
+      title: "Subscribed successfully",
+    });
+
+    setEmail("");
+  };
+
   return (
     <footer>
       <section className="p-4 py-16 md:px-14">
@@ -50,7 +85,7 @@ const Footer: React.FC = () => {
                 Subscribe to your email address for the latest news & updates.
               </p>
             </article>
-            <form>
+            <form onSubmit={onSubmit}>
               <input
                 type="email"
                 name="email"
@@ -58,6 +93,8 @@ const Footer: React.FC = () => {
                 autoComplete="email"
                 placeholder="Enter Email Address"
                 className="w-full bg-neutral-200 p-4 focus:outline-mainColor"
+                value={email}
+                onChange={handleEmailChange}
               />
               <input
                 type="submit"

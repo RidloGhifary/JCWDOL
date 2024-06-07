@@ -1,6 +1,62 @@
 import React from "react";
+import { Toast } from "../utils/Toast";
 
 const BookingForm: React.FC = () => {
+  const [formData, setFormData] = React.useState({
+    carType: "",
+    pickUpDate: "",
+    pickUpLocation: "",
+    dropOffDate: "",
+    useDriver: false,
+  });
+
+  const initialFormData = {
+    carType: "",
+    pickUpDate: "",
+    pickUpLocation: "",
+    dropOffDate: "",
+    useDriver: false,
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
+    const { name, value, type } = e.target;
+
+    if (type === "checkbox") {
+      const target = e.target as HTMLInputElement;
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: target.checked,
+      }));
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
+  };
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const { carType, pickUpDate, pickUpLocation, dropOffDate } = formData;
+
+    if (!carType || !pickUpDate || !pickUpLocation || !dropOffDate) {
+      Toast.fire({
+        icon: "error",
+        title: "All fields must be filled out",
+      });
+      return;
+    }
+
+    Toast.fire({
+      icon: "success",
+      title: "Please check your email for further instructions",
+    });
+    setFormData(initialFormData);
+  };
+
   return (
     <section className="p-4 py-16 md:px-14">
       <div className="rounded-lg p-6 shadow-xl">
@@ -14,7 +70,10 @@ const BookingForm: React.FC = () => {
           </p>
         </article>
 
-        <form className="my-6 grid grid-cols-2 items-end justify-end gap-2 md:grid-cols-3">
+        <form
+          className="my-6 grid grid-cols-2 items-end justify-end gap-2 md:grid-cols-3"
+          onSubmit={onSubmit}
+        >
           <div className="flex flex-col">
             <label htmlFor="carType" className="font-medium text-mainColor">
               Car Type
@@ -23,8 +82,12 @@ const BookingForm: React.FC = () => {
               name="carType"
               id="carType"
               className="h-[50px] w-full border border-mainColor p-2 text-mainColor focus:outline-none"
+              value={formData.carType}
+              onChange={handleChange}
             >
-              <option defaultChecked>Select your car type</option>
+              <option value="" disabled>
+                Select your car type
+              </option>
               <option value="bmw5series">BMW 5 Series</option>
               <option value="bmw320i">BMW 320i</option>
               <option value="bmwx3">BMW X3</option>
@@ -34,37 +97,46 @@ const BookingForm: React.FC = () => {
             </select>
           </div>
           <div className="flex flex-col">
-            <label htmlFor="date" className="font-medium text-mainColor">
-              Pick up date
+            <label htmlFor="pickUpDate" className="font-medium text-mainColor">
+              Pick Up Date
             </label>
             <input
               type="date"
-              name="date"
-              id="date"
+              name="pickUpDate"
+              id="pickUpDate"
               className="h-[50px] w-full border border-mainColor p-2 text-mainColor focus:outline-none"
+              value={formData.pickUpDate}
+              onChange={handleChange}
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="location" className="font-medium text-mainColor">
-              Pick up location
+            <label
+              htmlFor="pickUpLocation"
+              className="font-medium text-mainColor"
+            >
+              Pick Up Location
             </label>
             <input
               type="text"
-              name="location"
-              id="location"
+              name="pickUpLocation"
+              id="pickUpLocation"
               placeholder="Pick Location"
               className="placeholder-orange h-[50px] w-full border border-mainColor p-2 text-mainColor placeholder:text-mainColor focus:outline-none"
+              value={formData.pickUpLocation}
+              onChange={handleChange}
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="dropdate" className="font-medium text-mainColor">
-              Drop of date
+            <label htmlFor="dropOffDate" className="font-medium text-mainColor">
+              Drop Off Date
             </label>
             <input
               type="date"
-              name="date"
-              id="date"
+              name="dropOffDate"
+              id="dropOffDate"
               className="h-[50px] w-full border border-mainColor p-2 text-mainColor focus:outline-none"
+              value={formData.dropOffDate}
+              onChange={handleChange}
             />
           </div>
 
@@ -77,8 +149,9 @@ const BookingForm: React.FC = () => {
               type="checkbox"
               name="useDriver"
               id="useDriver"
-              value="User our driver"
               className="accent-orange scale-150 text-white"
+              checked={formData.useDriver}
+              onChange={handleChange}
             />
             <label
               htmlFor="useDriver"
