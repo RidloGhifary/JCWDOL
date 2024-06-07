@@ -5,6 +5,7 @@ import App from "./App";
 
 import Navbar from "./components/Navbar";
 const Footer = React.lazy(() => import("./components/Footer"));
+const Download = React.lazy(() => import("./components/Download"));
 
 const Root: React.FC = () => {
   const location = useLocation();
@@ -18,6 +19,7 @@ const Root: React.FC = () => {
           <App />
           {!isNotFoundPage && (
             <React.Suspense fallback={<p className="text-center">Loading</p>}>
+              <Download />
               <Footer />
             </React.Suspense>
           )}

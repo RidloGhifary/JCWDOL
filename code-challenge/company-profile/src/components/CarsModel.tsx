@@ -2,6 +2,7 @@ import React from "react";
 import SectionTitle from "./SectionTitle";
 import CarsModelData from "../assets/dataJson/carsModel.json";
 import { useLocation } from "react-router-dom";
+import { CarProps } from "../models/Cars";
 
 const CarsModel: React.FC = () => {
   const { pathname } = useLocation();
@@ -19,7 +20,7 @@ const CarsModel: React.FC = () => {
 
       <div className="mt-16 grid grid-cols-1 justify-center gap-2 lg:grid-cols-4">
         <div className="border-t border-mainColor">
-          {CarsModelData?.map((car, index) => (
+          {CarsModelData?.map((car: CarProps, index: number) => (
             <p
               onClick={() => setCarIndex(car.id)}
               key={index}
@@ -33,8 +34,8 @@ const CarsModel: React.FC = () => {
           <img
             src={CarsModelData[carIndex - 1].image}
             alt="cars-name"
-            width="100%"
-            height="100%"
+            width="auto"
+            height="auto"
             loading="lazy"
           />
         </div>
