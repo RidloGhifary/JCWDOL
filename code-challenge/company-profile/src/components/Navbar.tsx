@@ -39,12 +39,18 @@ const Navbar: React.FC = () => {
       </nav>
 
       <div className="mr-4 flex flex-1 items-center justify-end gap-4 md:mr-0 md:gap-8">
-        <button className="flex items-center justify-center gap-4 border border-mainColor bg-mainColor px-4 py-1 font-semibold text-white transition hover:bg-white hover:text-mainColor md:px-6 md:py-2">
+        <Link
+          to="/login"
+          className="flex items-center justify-center gap-4 border border-mainColor bg-mainColor px-4 py-1 font-semibold text-white transition hover:bg-white hover:text-mainColor md:px-6 md:py-2"
+        >
           Login
-        </button>
-        <button className="flex items-center justify-center gap-4 border border-mainColor bg-mainColor px-4 py-1 font-semibold text-white transition hover:bg-white hover:text-mainColor md:px-6 md:py-2">
+        </Link>
+        <Link
+          to="/register"
+          className="flex items-center justify-center gap-4 border border-mainColor bg-mainColor px-4 py-1 font-semibold text-white transition hover:bg-white hover:text-mainColor md:px-6 md:py-2"
+        >
           Register
-        </button>
+        </Link>
       </div>
 
       <div className="flex items-center gap-2">

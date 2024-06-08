@@ -5,6 +5,8 @@ const Home = React.lazy(() => import("./pages/Home"));
 const About = React.lazy(() => import("./pages/About"));
 const Cars = React.lazy(() => import("./pages/Cars"));
 const Teams = React.lazy(() => import("./pages/Teams"));
+const Login = React.lazy(() => import("./pages/Login"));
+const Register = React.lazy(() => import("./pages/Register"));
 const NotFound = React.lazy(() => import("./components/NotFound"));
 
 const App: React.FC = () => {
@@ -15,6 +17,8 @@ const App: React.FC = () => {
         <Route path="/about" element={<About />} />
         <Route path="/cars" element={<Cars />} />
         <Route path="/teams" element={<Teams />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
