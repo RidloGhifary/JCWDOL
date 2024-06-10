@@ -31,7 +31,7 @@ const Root: React.FC = () => {
   return (
     <React.StrictMode>
       <TeamsContextProvider>
-        <main className="container max-w-7xl">
+        <main className="container relative max-w-7xl">
           {!isNotFoundPage && <Navbar />}
           <App />
           <ScrollToTop showButtonScrollToTop={showButtonScrollToTop} />
